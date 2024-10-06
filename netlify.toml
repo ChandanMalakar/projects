@@ -4,4 +4,4 @@
 
 [build.environment]
   FLASK_ENV = "production"  # Set the Flask environment to production
-  PYTHON_VERSION = "3.9"    # Specify the Python version (adjust if needed)
+  PYTHON_VERSION = "3.12.3"    # Specify the Python version (adjust if needed)
