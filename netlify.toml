@@ -1,7 +1,0 @@
-[build]
-  command = "pip install -r requirements.txt && cp templates/index.html ./ && waitress-serve --host=0.0.0.0 --port=5000 app:app"
-  publish = "."
-
-[build.environment]
-  FLASK_ENV = "production"
-  NETLIFY = "True"

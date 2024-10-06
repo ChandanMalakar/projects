@@ -8,14 +8,7 @@ app.secret_key = '1lkdf75gh49cm1603rm04'
 dbo = Database()
 
 
-
-if __name__ == '__main__':
-    # Only use waitress for Netlify deployment
-    if os.getenv("NETLIFY", "False") == "True":
-        serve(app, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
-    else:
-        # Use Flask's development server for local testing
-        app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
+__name__ == "__main__"
 
 
 
@@ -100,3 +93,5 @@ def project():
 def logout():
     session.pop('user_email', None)  # Remove user ID from session
     return render_template('login.html', message='Successfully Logged Out', color='green')
+
+app.run(debug=True)
