@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, json
 from db import Database
 import os
+from waitress import serve
 
 app = Flask(__name__)
 app.secret_key = '1lkdf75gh49cm1603rm04'
@@ -9,7 +10,10 @@ dbo = Database()
 
 
 if __name__ == '__main__':
-    app.run(debug=os.getenv("NETLIFY", "False") != "True", host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
+    if os.getenv("NETLIFY", "False") == "True":
+        serve(app, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
+    else:
+        app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
 
 
 

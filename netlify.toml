@@ -4,3 +4,4 @@
 
 [build.environment]
   FLASK_ENV = "production"
+  NETLIFY = "True"
