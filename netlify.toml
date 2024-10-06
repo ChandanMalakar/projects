@@ -4,4 +4,3 @@
 
 [build.environment]
   FLASK_ENV = "production"
-  PYTHON_VERSION = "3.10"
