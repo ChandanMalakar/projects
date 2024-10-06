@@ -1,3 +1,7 @@
 [build]
-  command = "cp templates/index.html ./ && flask run"  # Copies index.html to root and starts the Flask server
-  publish = "."
+  command = "cp templates/index.html ./ && gunicorn app:app"  # Copies index.html to root and starts the Flask app using Gunicorn
+  publish = "."  # Specify the root directory as the publish folder
+
+[build.environment]
+  FLASK_ENV = "production"  # Set the Flask environment to production
+  PYTHON_VERSION = "3.9"    # Specify the Python version (adjust if needed)
