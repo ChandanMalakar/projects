@@ -1,0 +1,3 @@
+[build]
+  command = "cp templates/index.html ./ && flask run"  # Copies index.html to root and starts the Flask server
+  publish = "."
