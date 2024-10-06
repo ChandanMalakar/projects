@@ -10,10 +10,12 @@ dbo = Database()
 
 
 if __name__ == '__main__':
+    # Only use waitress for Netlify deployment
     if os.getenv("NETLIFY", "False") == "True":
         serve(app, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
     else:
-        app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
+        # Use Flask's development server for local testing
+        app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
 
 
 
@@ -98,5 +100,3 @@ def project():
 def logout():
     session.pop('user_email', None)  # Remove user ID from session
     return render_template('login.html', message='Successfully Logged Out', color='green')
-
-app.run(debug=True)
