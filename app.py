@@ -8,7 +8,6 @@ app.secret_key = '1lkdf75gh49cm1603rm04'
 dbo = Database()
 
 
-__name__ == "__main__"
 
 
 
@@ -94,4 +93,6 @@ def logout():
     session.pop('user_email', None)  # Remove user ID from session
     return render_template('login.html', message='Successfully Logged Out', color='green')
 
-app.run()
+
+if __name__ == "__main__":
+    app.run(debug=True)
