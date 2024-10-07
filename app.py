@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, json
 from db import Database
-import os
-from waitress import serve
+
 
 app = Flask(__name__)
 app.secret_key = '1lkdf75gh49cm1603rm04'
@@ -94,5 +93,5 @@ def logout():
     return render_template('login.html', message='Successfully Logged Out', color='green')
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+__name__ == "__main__"
+    # app.run(debug=True)
